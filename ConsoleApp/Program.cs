@@ -26,14 +26,18 @@ namespace ConsoleApp
                 Console.Clear();
                 Console.SetCursorPosition(x, 5);
 
-                if(x%3 == 0)
+                switch (x % 3)
                 {
-                    Console.WriteLine("__@");
-                }else if(x%3 == 1)
-                {
-                    Console.WriteLine("_^@");
-                }else { 
-                    Console.WriteLine("^_@"); 
+                    case 0:
+                        Console.WriteLine("__@");
+                        break;
+                    case 1:
+                        Console.WriteLine("_^@");
+                        break;
+                    case 2:
+                        Console.WriteLine("^_@");
+                        break;
+
                 }
                 Thread.Sleep(1000);
                 x++;
