@@ -8,6 +8,14 @@ namespace ConsoleApp
 {
     internal class Program
     {
+        private static readonly int SnakeStateTotal = 3;
+        private const int SnakeState1 = 0;
+        private const int SnakeState2 = 1;
+        private const int SnakeState3 = 2;
+        private static readonly int SnakeMoveCount = 50;
+        private static readonly int SnakeRow = 5;
+        private static readonly int SnakeSleepTime = 1000;
+
         static void Main(string[] args)
         {
 /*            Console.Write("메서드 호출");
@@ -20,26 +28,26 @@ namespace ConsoleApp
 
             //Console.SetCursorPosition(0, 0); //위에 출력 내용을 덮을 수 있다*/
 
-            int x = 1;
-            while(x < 50)
+            int x = SnakeState1;
+            while(x < SnakeMoveCount)
             {
                 Console.Clear();
-                Console.SetCursorPosition(x, 5);
+                Console.SetCursorPosition(x, SnakeRow); //매직넘버
 
-                switch (x % 3)
+                switch (x % SnakeStateTotal)
                 {
-                    case 0:
+                    case SnakeState1:
                         Console.WriteLine("__@");
                         break;
-                    case 1:
+                    case SnakeState2:
                         Console.WriteLine("_^@");
                         break;
-                    case 2:
+                    case SnakeState3:
                         Console.WriteLine("^_@");
                         break;
 
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(SnakeSleepTime);
                 x++;
             }
         }
